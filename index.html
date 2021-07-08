@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cURL Generator</title>
+</head>
+<body>
+  <div>
+    <label for="method">Method: </label>
+    <select name="method" id="method">
+      <option value="POST">POST</option>
+      <option value="GET">GET</option>
+    </select>
+  </div>
+  <div>
+    <input type="text" name="url" id="url" placeholder="URL">
+  </div>
+  <div>
+    <input type="checkbox" id="param" name="param" onclick="updateParamDiv()" checked=true>
+    <label for="param">Query Params</label>
+    <input type="checkbox" id="header" name="header" onclick="updateHeaderDiv()" checked=true>
+    <label for="header">Header</label>
+    <input type="checkbox" id="body" name="body" onclick="updateBodyDiv()" checked=true>
+    <label for="body">Body</label>
+  </div>
+  <div id="requestParameters">
+    <div id="ParamDiv">
+      <p>Query Parameters
+        <button onclick="addQueryParameter()">+</button>
+        
+      </p>
+      <ul id="listaParametros">
+        <li>
+          <input type="text" placeholder="Parameter">
+          <input type="text" placeholder="Value">
+          <input type="checkbox">
+          <button onclick="deleteQueryParameter(this.id)" id="deleteParamButton1">Delete</button>
+          </li>
+      </ul>
+    </div>
+    <div id="HeaderDiv">
+        <p>Header
+          <button>+</button>
+          
+        </p>
+        <ul>
+          <li>
+            <input type="text" placeholder="Header">
+            <input type="text" placeholder="Value">
+            <input type="checkbox">
+            <button>Delete</button>
+          </li>
+        </ul>
+    </div>
+    <div id="BodyDiv">
+      <p>Body</p>
+      <ul>
+        <input type="radio" name="bodyType" value="Json" id="json" checked=true>
+        <label for="json">Json</label>
+        <input type="radio" name="bodyType" value="x-www-form-urlencoded" id="form">
+        <label for="form">x-www-form-urlencoded</label>
+      </ul>
+    </div>
+</div>
+    <textarea name="GeneratedCurl" id="GeneratedCurl" cols="30" rows="3"></textarea>
+</body>
+<script src="/js/index.js"></script>
+</html>
