@@ -32,9 +32,23 @@ function addQueryParameter() {
   let parameter = createInput("Parameter")
   let value = createInput("Value")
   let checkbox = createCheckbox()
+  checkbox.checked = true;
   let button = createButton(`deleteParamButton${lista.childElementCount + 1}`);
-  button.onclick = () => {deleteQueryParameter(button.id);}
+  button.onclick = () => {deleteItem(button.id);}
   addChildElement(li,[parameter, value, checkbox, button])
+  lista.appendChild(li);
+}
+
+function addHeader() {
+  let lista = document.getElementById("listaHeaders");
+  let li = document.createElement("li");
+  let header = createInput("Header")
+  let value = createInput("Value")
+  let checkbox = createCheckbox()
+  let button = createButton(`deleteHeaderButton${lista.childElementCount + 1}`);
+  checkbox.checked = true;
+  button.onclick = () => {deleteItem(button.id);}
+  addChildElement(li,[header, value, checkbox, button])
   lista.appendChild(li);
 }
 
@@ -64,6 +78,6 @@ function createButton(buttonID){
   return button;
 }
 
-function deleteQueryParameter(id) {
+function deleteItem(id) {
   document.getElementById(id).parentElement.remove();
 }

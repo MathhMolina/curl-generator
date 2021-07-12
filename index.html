@@ -35,32 +35,31 @@
         <li>
           <input type="text" placeholder="Parameter">
           <input type="text" placeholder="Value">
-          <input type="checkbox">
-          <button onclick="deleteQueryParameter(this.id)" id="deleteParamButton1">Delete</button>
+          <input type="checkbox" checked>
+          <button onclick="deleteItem(this.id)" id="deleteParamButton1">Delete</button>
           </li>
       </ul>
     </div>
     <div id="HeaderDiv">
         <p>Header
-          <button>+</button>
+          <button onclick="addHeader()">+</button>
           
         </p>
-        <ul>
+        <ul id="listaHeaders">
           <li>
             <input type="text" placeholder="Header">
             <input type="text" placeholder="Value">
-            <input type="checkbox">
-            <button>Delete</button>
+            <input type="checkbox" checked>
+            <button onclick="deleteItem(this.id)" id="deleteHeaderButton1">Delete</button>
           </li>
         </ul>
     </div>
     <div id="BodyDiv">
       <p>Body</p>
       <ul>
-        <input type="radio" name="bodyType" value="Json" id="json" checked=true>
-        <label for="json">Json</label>
-        <input type="radio" name="bodyType" value="x-www-form-urlencoded" id="form">
-        <label for="form">x-www-form-urlencoded</label>
+        <li>
+          <textarea id="body" placeholder="Body"></textarea>
+        </li>
       </ul>
     </div>
 </div>
