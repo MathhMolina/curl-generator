@@ -120,8 +120,15 @@ function getURL(){
   return document.getElementById("url").value;
 }
 
+function getHTTPMethod(){
+  return document.getElementById("method").value
+}
+
 function generateCURL(){
   if(getURL() == "") return
-  let generatedCURL = "cURL " + getURL() + getQueryParams();
+  let generatedCURL = "cURL "
+  if(getHTTPMethod() === "POST") generatedCURL = generatedCURL + "-X POST ";
+  generatedCURL = generatedCURL + getURL();
+  generatedCURL = generatedCURL + getQueryParams();
   document.getElementById("GeneratedCurl").value = generatedCURL;
 }
