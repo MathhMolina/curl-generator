@@ -33,8 +33,8 @@
       </p>
       <ul id="listaParametros">
         <li>
-          <input type="text" placeholder="Parameter">
-          <input type="text" placeholder="Value">
+          <input type="text" placeholder="Parameter" name="Parameter">
+          <input type="text" placeholder="Value" name="Value">
           <input type="checkbox" checked>
           <button onclick="deleteItem(this.id)" id="deleteParamButton1">Delete</button>
           </li>
@@ -47,8 +47,8 @@
         </p>
         <ul id="listaHeaders">
           <li>
-            <input type="text" placeholder="Header">
-            <input type="text" placeholder="Value">
+            <input type="text" placeholder="Header" name="Header">
+            <input type="text" placeholder="Value" name="Value">
             <input type="checkbox" checked>
             <button onclick="deleteItem(this.id)" id="deleteHeaderButton1">Delete</button>
           </li>
@@ -63,7 +63,8 @@
       </ul>
     </div>
 </div>
-    <textarea name="GeneratedCurl" id="GeneratedCurl" cols="30" rows="3"></textarea>
+    <button id="generateCURL" onclick="generateCURL()">Generate</button>
+    <textarea name="GeneratedCurl" id="GeneratedCurl" cols="90" rows="3" disabled></textarea>
 </body>
 <script src="/js/index.js"></script>
 </html>

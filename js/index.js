@@ -52,10 +52,11 @@ function addHeader() {
   lista.appendChild(li);
 }
 
-function createInput(placeholder){
+function createInput(name){
   let input = document.createElement("input");
   input.type = "text";
-  input.placeholder = placeholder;
+  input.name = name;
+  input.placeholder = name;
   return input
 }
 
@@ -80,4 +81,47 @@ function createButton(buttonID){
 
 function deleteItem(id) {
   document.getElementById(id).parentElement.remove();
+}
+
+
+
+function getQueryParams(){
+  let lista = Array.from(document.querySelectorAll("#listaParametros > li"));
+  lista = getValidInputValues(lista)
+  if (lista.length == 0) return "";
+  let queryParameters = "?"
+  lista.forEach((param)=>{
+    queryParameters = queryParameters + param.name + "=" + param.value + "&"
+  });
+  return queryParameters.slice(0, -1)
+}
+
+function getHeaderValues(){
+
+}
+//REFATORAR
+function getValidInputValues(elementsArr){
+  return elementsArr.filter((element)=>{
+    let name = element.querySelector("input:nth-child(1)").value
+    let value = element.querySelector("input:nth-child(2)").value
+    if(name === "" ||  value === ""){
+      return false
+    }else {
+      return true
+    }
+  }).map((element) => {
+    let name = element.querySelector("input:nth-child(1)").value
+    let value = element.querySelector("input:nth-child(2)").value
+    return {name, value}
+  });
+
+}
+function getURL(){
+  return document.getElementById("url").value;
+}
+
+function generateCURL(){
+  if(getURL() == "") return
+  let generatedCURL = "cURL " + getURL() + getQueryParams();
+  document.getElementById("GeneratedCurl").value = generatedCURL;
 }
