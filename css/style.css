@@ -1,0 +1,46 @@
+.col-md-1 > input {
+    position: relative;
+    top: 42%;
+    transform: translateY(-50%); 
+}
+
+.col-md-3 > button {
+    position: relative;
+    float: left;
+    top: 50%;
+    transform: translateY(-50%); 
+    align-self: left;
+}
+
+#url {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#method{
+    margin: 15px;
+}
+
+#parameters {
+    margin-bottom: 15px;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+.div-button-gerar-curl {
+    margin-right: 15px;
+}
+
+#generateCURL{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); 
+    align-self: left;
+}
+
+#addParameter{
+    border-radius: 7px;
+    background-color: white;
+}

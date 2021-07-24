@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>cURL Generator</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="px-4 py-5 my-5 text-center">
+            <div class="display-5 fw-bold">
+                <select name="method" id="method" class="form-select-lg">
+                    <option value="POST">POST</option>
+                    <option value="GET">GET</option>
+                </select>
+                <input type="text" name="url" id="url" placeholder="URL" class="form-control-lg col-md-8">
+            </div>
+            <div id="parameters">
+
+                <div class="lead mb-3">
+                    <input type="checkbox" id="param" name="param" onclick="updateParamDiv()" checked=true>
+                    <label for="param">Query Params</label>
+                    <input type="checkbox" id="header" name="header" onclick="updateHeaderDiv()" checked=true>
+                    <label for="header">Header</label>
+                    <input type="checkbox" id="body" name="body" onclick="updateBodyDiv()" checked=true>
+                    <label for="body">Body</label>
+                </div>
+            </div>
+            <div id="requestParameters" class="row">
+
+
+                <div id="ParamDiv" class="col">
+                    <p>Query Parameters
+                        <button onclick="addQueryParameter()" id="addParameter">+</button>
+
+                    </p>
+                    <ul id="listaParametros">
+                        <li class="row">
+                            <div class="col-md-1">
+                                <input type="checkbox" checked>
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder="Parameter" name="Parameter"
+                                    class="form-control form-control-sm">
+                                <input type="text" placeholder="Value" name="Value"
+                                    class="form-control form-control-sm">
+                            </div>
+                            <div class="col-md-3">
+                                <button onclick="deleteItem(this.id)" id="deleteParamButton1">Delete</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="HeaderDiv" class="col">
+                    <p>Header
+                        <button onclick="addHeader()" id="addParameter">+</button>
+
+                    </p>
+                    <ul id="listaHeaders">
+                        <li class="row">
+                            <div class="col-md-1">
+                                <input type="checkbox" checked>
+                            </div>
+                            <div class="col">
+                                <input type="text" placeholder="Header" name="Header"
+                                    class="form-control form-control-sm">
+                                <input type="text" placeholder="Value" name="Value"
+                                    class="form-control form-control-sm">
+                            </div>
+                            <div class="col-md-3">
+                                <button onclick="deleteItem(this.id)" id="deleteHeaderButton1">Delete</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="BodyDiv" class="col">
+                    <p>Body</p>
+                    <ul>
+                        <li>
+                            <textarea id="body" placeholder="Body"></textarea>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 div-button-gerar-curl">
+                <button id="generateCURL" onclick="generateCURL()" class="btn-lg">Generate</button>
+            </div>
+            <div class="col-md-9">
+                <textarea name="GeneratedCurl" id="GeneratedCurl" cols="90" rows="2" disabled class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+<script src="/js/index.js"></script>
+
+</html>
